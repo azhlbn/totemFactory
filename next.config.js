@@ -13,7 +13,7 @@ const nextConfig = {
   },
   // Basic configuration for Pages Router
   distDir: '.next',
-  // Explicitly define page paths
+  // Explicitly define page paths and extensions
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   // Force the index page to be generated
   exportPathMap: async function () {
@@ -21,6 +21,11 @@ const nextConfig = {
       '/': { page: '/' },
       '/404': { page: '/404' }
     };
+  },
+  // Resolve extensions for imports
+  webpack: (config) => {
+    config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx', ...config.resolve.extensions];
+    return config;
   },
   // Optimization for Vercel
   poweredByHeader: false,
