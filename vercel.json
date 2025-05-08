@@ -4,9 +4,6 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install --legacy-peer-deps",
   "regions": ["fra1"],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "env": {
     "NEXT_PUBLIC_MINATO_CHAIN_ID": "1946",
     "NEXT_PUBLIC_MINATO_NETWORK_NAME": "Minato",
