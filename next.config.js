@@ -11,7 +11,6 @@ const nextConfig = {
     domains: ['gateway.pinata.cloud', 'ipfs.io'],
     unoptimized: true, // Отключаем оптимизацию изображений, чтобы избежать проблем со сборкой
   },
-  // Отключаем оптимизацию CSS и шрифтов
   optimizeFonts: false,
   // Отключаем минификацию SWC, которая может влиять на стили
   swcMinify: false,
