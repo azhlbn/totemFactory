@@ -270,14 +270,16 @@ const TotemViewer: React.FC<ProviderProps> = ({ provider }) => {
             
             {totemData.metadata.image && (
               <div className="mb-6 flex justify-center bg-black/20 p-3 rounded-lg border border-secondary/10 shadow-inner hover:shadow-lg transition-all duration-300 hover:border-primary/30">
-                <img 
-                  src={formatIpfsUrl(totemData.metadata.image)} 
-                  alt={totemData.metadata.name || 'Totem Image'} 
-                  className="max-h-64 object-contain rounded-lg shadow-md hover:scale-105 transition-all duration-300" 
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/200?text=Image+Not+Available';
-                  }}
-                />
+                <div className="aspect-square w-48 h-48 relative">
+                  <img 
+                    src={formatIpfsUrl(totemData.metadata.image)} 
+                    alt={totemData.metadata.name || 'Totem Image'} 
+                    className="w-full h-full object-cover object-center rounded-lg shadow-md hover:scale-105 transition-all duration-300" 
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://via.placeholder.com/200?text=Image+Not+Available';
+                    }}
+                  />
+                </div>
               </div>
             )}
             

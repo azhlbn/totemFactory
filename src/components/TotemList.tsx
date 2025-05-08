@@ -107,18 +107,18 @@ const TotemList: React.FC<ProviderProps> = ({ provider }) => {
       {totems.length === 0 ? (
         <p className="text-gray-400 text-center py-8">No totems found</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
           {totems.map((totem) => (
             <div 
               key={totem.id} 
               className="bg-white/5 rounded-lg overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-colors"
             >
-              <div className="h-48 w-full overflow-hidden bg-gray-700/30 flex items-center justify-center">
+              <div className="aspect-square w-full overflow-hidden bg-gray-700/30 flex items-center justify-center">
                 {totem.metadata?.image ? (
                   <img 
                     src={formatIpfsUrl(totem.metadata.image)} 
                     alt={totem.metadata?.name || 'Totem'} 
-                    className="w-full h-48 object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 ) : (
                   <div className="text-gray-500 text-center">
@@ -130,16 +130,22 @@ const TotemList: React.FC<ProviderProps> = ({ provider }) => {
                 )}
               </div>
               
-              <div className="p-4">
-                <h3 className="text-lg font-bold mb-2">
-                  {totem.metadata?.name || `Totem #${totem.totemId}`}
-                </h3>
+              <div className="p-3 flex flex-col justify-between h-[140px]">
+                <div className="h-12 overflow-hidden">
+                  <h3 className="text-base font-bold line-clamp-2">
+                    {totem.metadata?.name || `Totem #${totem.totemId}`}
+                  </h3>
+                </div>
                 
-                {totem.metadata?.description && (
-                  <p className="text-gray-400 text-sm mb-3 line-clamp-2">
-                    {totem.metadata.description}
-                  </p>
-                )}
+                <div className="h-12 overflow-hidden flex items-center">
+                  {totem.metadata?.description ? (
+                    <p className="text-gray-400 text-xs line-clamp-2">
+                      {totem.metadata.description}
+                    </p>
+                  ) : (
+                    <p className="text-gray-500 text-xs italic">No description</p>
+                  )}
+                </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-gray-500">

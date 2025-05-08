@@ -86,7 +86,7 @@ export default function Home() {
         
         {provider && (
           <div className="card animate-fadeIn">
-            <h2 className="text-2xl font-bold mb-6 text-secondary">Your Totems Gallery</h2>
+            <h2 className="text-2xl font-bold mb-6 text-secondary">Totems Gallery</h2>
             <TotemList provider={provider} />
           </div>
         )}

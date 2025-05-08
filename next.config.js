@@ -9,22 +9,20 @@ const nextConfig = {
   },
   images: {
     domains: ['gateway.pinata.cloud', 'ipfs.io'],
-    unoptimized: true,
+    // Используем оптимизацию изображений для лучшей производительности
+    unoptimized: false,
   },
   // Basic configuration for Pages Router
   distDir: '.next',
   // Explicitly define page paths and extensions
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  // Force the index page to be generated
-  exportPathMap: async function () {
-    return {
-      '/': { page: '/' },
-      '/404': { page: '/404' }
-    };
-  },
+  // Удаляем exportPathMap, так как он может вызывать проблемы на Vercel
   // Resolve extensions for imports
   webpack: (config) => {
     config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx', ...config.resolve.extensions];
+    
+    // Упрощенная конфигурация без использования rule.test.test
+    // Next.js уже включает postcss-loader по умолчанию
     return config;
   },
   // Optimization for Vercel
