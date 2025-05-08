@@ -1,0 +1,7 @@
+/* Явный импорт стилей Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Импортируем наши глобальные стили */
+@import './globals.css';

@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}', // Включаем все файлы в src
+    './public/**/*.html',
   ],
   theme: {
     extend: {
@@ -29,23 +28,31 @@ module.exports = {
     },
   },
   plugins: [],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  // Используем более специфичный safelist вместо агрессивного pattern: /./
+  // Отключаем JIT режим для лучшей совместимости
+  mode: 'jit',
+  // Включаем все классы, используемые в проекте
   safelist: [
-    'bg-primary',
-    'bg-secondary',
-    'text-primary',
-    'text-secondary',
-    'border-primary',
-    'border-secondary',
-    'hover:bg-primary',
-    'hover:bg-secondary',
-    'hover:text-primary',
-    'hover:text-secondary',
-    'hover:border-primary',
-    'hover:border-secondary',
+    // Базовые классы
+    'container', 'card', 'btn', 'btn-primary', 'btn-secondary',
+    'panel', 'neon-line', 'top', 'bottom',
+    
+    // Фоны и цвета
+    'bg-primary', 'bg-secondary', 'bg-accent',
+    'text-primary', 'text-secondary', 'text-accent',
+    'border-primary', 'border-secondary', 'border-accent',
+    
+    // Hover состояния
+    'hover:bg-primary', 'hover:bg-secondary',
+    'hover:text-primary', 'hover:text-secondary',
+    'hover:border-primary', 'hover:border-secondary',
+    
+    // Градиенты
+    'bg-gradient-to-r', 'bg-gradient-to-br', 'from-primary', 'to-secondary', 'via-accent',
+    
+    // Анимации
+    'animate-fadeIn', 'animate-pulse', 'animate-spin',
+    
+    // Утилиты
+    'aspect-square', 'line-clamp-2', 'object-cover', 'object-center',
   ],
 }
