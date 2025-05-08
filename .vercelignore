@@ -1,0 +1,6 @@
+# Ignore subgraph directory
+/mytho-minato
+
+# Ignore TypeScript errors during build
+*.ts
+*.tsx

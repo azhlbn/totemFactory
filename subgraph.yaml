@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TotemFactory
+    network: minato
+    source:
+      address: "0xdEA87AA6Dc228865F6F8219c7fa739CE0587dcC5"
+      abi: TotemFactory
+      startBlock: 1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - TotemCreated
+      abis:
+        - name: TotemFactory
+          file: ./abis/TotemFactory.json
+      eventHandlers:
+        - event: TotemCreated(address,address,uint256)
+          handler: handleTotemCreated
+      file: ./src/totem-factory.ts

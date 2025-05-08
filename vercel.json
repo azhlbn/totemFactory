@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "regions": ["fra1"],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "env": {
+    "NEXT_PUBLIC_MINATO_CHAIN_ID": "1946",
+    "NEXT_PUBLIC_MINATO_NETWORK_NAME": "Minato",
+    "NEXT_PUBLIC_MINATO_RPC_URL": "https://rpc.minato.network",
+    "NEXT_PUBLIC_MINATO_EXPLORER_URL": "https://explorer.minato.network",
+    "NEXT_PUBLIC_TOTEM_FACTORY_ADDRESS": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "NEXT_PUBLIC_GRAPH_API_URL": "https://api.studio.thegraph.com/query/54811/totem-creator/version/latest",
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  }
+}

@@ -1,0 +1,18 @@
+type TotemCreated @entity {
+  id: ID!
+  totemAddr: Bytes!
+  totemTokenAddr: Bytes!
+  totemId: BigInt!
+  creator: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type _Schema_
+  @fulltext(
+    name: "totemSearch"
+    language: en
+    algorithm: rank
+    include: [{ entity: "TotemCreated", fields: [{ name: "totemAddr" }, { name: "creator" }] }]
+  )
