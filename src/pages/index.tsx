@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import WalletConnect from '../components/WalletConnect';
 import TotemForm from '../components/TotemForm';
 
-// Динамический импорт компонентов для избежания проблем с SSR
 const TotemViewer = dynamic(() => import('../components/TotemViewer').then(mod => mod), { ssr: false });
 const TotemList = dynamic(() => import('../components/TotemList'), { ssr: false });
 const TokenAddressList = dynamic(() => import('../components/TokenAddressList'), { ssr: false });
